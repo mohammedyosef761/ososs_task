@@ -1,0 +1,112 @@
+@use "./constants";
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.grid-container {
+  display: grid;
+  padding: 10px 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding-bottom: 10vh;
+  @media (max-width: 600px) {
+    // Mobile breakpoint
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 601px) and (max-width: 1024px) {
+    // Tablet breakpoint
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1025px) {
+    // Desktop breakpoint
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+button {
+  background-color: constants.$black;
+  color: constants.$white;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: constants.$bg;
+  }
+
+  &.btn-add {
+    width: 100%;
+    padding: 20px;
+  }
+
+  &.success {
+    background-color: constants.$success;
+    &:hover {
+      background-color: constants.$lsuccess;
+    }
+  }
+
+  &.danger {
+    background-color: constants.$error;
+    &:hover {
+      background-color: constants.$lerror;
+    }
+  }
+
+  &.info {
+    background-color: constants.$info;
+    &:hover {
+      background-color: constants.$linfo;
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-color: constants.$shadow;
+
+  .n-pages {
+    @media (max-width: 800px) {
+      width: 25px;
+    }
+  }
+  button {
+    margin: 0;
+
+    &.active {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+.product-description {
+  min-height: 200px;
+}
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .danger {
+    margin: 0px;
+    width: 100%;
+    @media (max-width:1000px) {
+      width: 50%;
+    }
+  }
+
+  .cartItems_details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}

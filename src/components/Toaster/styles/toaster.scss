@@ -1,0 +1,60 @@
+@use "../../../styles/constants";
+
+.toaster {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px constants.$shadow;
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0;
+  transform: translateY(100px);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.success {
+    background-color: constants.$success;
+    color: constants.$white;
+  }
+
+  &.error {
+    background-color: constants.$error;
+    color: constants.$white;
+  }
+
+  &.info {
+    background-color: constants.$info;
+    color: constants.$white;
+  }
+
+  &.warning {
+    background-color: constants.$warning;
+    color: constants.$black;
+  }
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  // Tablet and below
+  .toaster {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  // Mobile
+  .toaster {
+    bottom: 10px;
+    right: 5px;
+    padding: 6px 12px;
+    width: calc(
+      100% - 40px
+    ); // Make it full width with a little margin on both sides
+  }
+}

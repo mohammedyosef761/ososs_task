@@ -1,0 +1,94 @@
+@use "../../../styles/constants";
+
+.product-card {
+  border: 1px solid constants.$border;
+  border-radius: 5px;
+  padding: 10px;
+  transition: box-shadow 0.3s;
+  min-height:450px ;
+
+  &:hover {
+    box-shadow: 0 4px 8px constants.$shadow;
+  }
+
+  .product-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 300px;
+  }
+
+  .product-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .product-price {
+    color: constants.$success;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .product-state {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+    &.normal {
+      color: constants.$warning;
+    }
+
+    &.added {
+      color: constants.$success;
+    }
+
+    &.bought {
+      color: constants.$info;
+    }
+  }
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  // Tablet and below
+  .product-card {
+    padding: 8px;
+
+    .product-image {
+      object-fit: contain;
+      height: 500px;
+    }
+
+    .product-name,
+    .product-price {
+      font-size: 0.9em;
+    }
+
+    .product-state {
+      font-size: 0.7em;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  // Mobile
+  .product-card {
+    padding: 5px;
+
+    .product-image {
+      object-fit: contain;
+      height: 500px;
+    }
+
+    .product-name,
+    .product-price {
+      font-size: 0.8em;
+    }
+
+    .product-state {
+      font-size: 0.6em;
+    }
+  }
+}
