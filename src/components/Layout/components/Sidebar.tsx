@@ -30,10 +30,21 @@ export const Sidebar: React.FC = () => {
             removeFromCart={removeFromCart}
           />
         ))}
-        <div style={{ marginBottom: "50px" }}>Total: ${total.toFixed(2)}</div>
-        <button style={{ marginBottom: "70px"}} onClick={handlePurchase}>
-          Purchase
-        </button>
+        {cart?.length == 0 ? (
+          <div style={{display:'flex',justifyContent:'center',alignItems:'center'}} >
+            <h1>there is no items</h1>
+          </div>
+        ) : (
+          <>
+            {" "}
+            <div style={{ marginBottom: "50px" }}>
+              Total: ${total.toFixed(2)}
+            </div>
+            <button style={{ marginBottom: "70px" }} onClick={handlePurchase}>
+              Purchase
+            </button>
+          </>
+        )}
       </aside>
     </>
   );

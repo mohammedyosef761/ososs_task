@@ -31,7 +31,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           className="btn-add"
           onClick={() => handleAddToCart(ProductStatus.ADDED)}
         >
-          Add to Cart
+          add to Cart
         </button>
       )}
       {state === ProductStatus.ADDED && (

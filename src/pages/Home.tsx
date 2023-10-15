@@ -3,7 +3,6 @@ import { Layout, Loader, Pagination, ProductList } from "../components";
 import { useProducts } from "../hooks";
 import { SidebarProvider } from "../context";
 
-const MemoizedProductList = React.memo(ProductList);
 
 const Home = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -17,7 +16,7 @@ const Home = () => {
     <SidebarProvider>
       <Layout>
         {loading && <Loader />}
-        <MemoizedProductList products={products} loading={loading}/>
+        <ProductList products={products} loading={loading}/>
         {products?.length > 0 && (
           <Pagination
             currentPage={currentPage}

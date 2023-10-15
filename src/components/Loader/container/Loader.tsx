@@ -11,7 +11,7 @@ export const Loader: React.FC<LoaderProps> = ({ size = 50, color = "#000" }) => 
     else if (size >= 70) sizeClass = "large";
 
     return (
-        <div className='lodaer-container'>
+        <div className='loader-container'>
             <div className={`loader ${sizeClass}`} style={{ color }}></div>
         </div>
     );

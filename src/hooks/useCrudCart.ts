@@ -1,41 +1,72 @@
+import { useState, useCallback } from "react";
+import { Products } from "../types";
+import { ProductStatus } from "../components/Product/types";
 
+export const useCrudCart = (showToast: Function) => {
+  const [cart, setCart] = useState<Products[]>([]);
 
-import { useState, useCallback } from 'react';
-import { Products } from '../types';
-import {ProductStatus } from '../components/Product/types';
+  const [productStatus, setproductStatus] = useState<
+    Record<number, ProductStatus>
+  >({});
 
-export const useCrudCart = (showToast: Function, updateProductState: Function) => {
-    const [cart, setCart] = useState<Products[]>([]);
+  const updateProductState = useCallback(
+    (productId: number, state: ProductStatus) => {
+      setproductStatus((prevStates) => ({
+        ...prevStates,
+        [productId]: state,
+      }));
+    },
+    []
+  );
 
-    const addToCart = useCallback((product: Products) => {
-        if (!cart.some(p => p.id === product.id)) {
-            setCart(prevCart => [...prevCart, { ...product, quantity: 1 }]);
-            showToast('Item added to cart!', 'success');
-        } else {
-            showToast('Product is already in the cart!', 'error');
-        }
-    }, [showToast, cart]);
+  const addToCart = useCallback(
+    (product: Products) => {
+      if (!cart.some((p) => p.id === product.id)) {
+        setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
+        showToast("added item to the cart is successs!", "success");
+      } else {
+        showToast("Product is exist in your cart!", "error");
+      }
+    },
+    [showToast, cart]
+  );
 
-    const removeFromCart = useCallback((productId: number) => {
-        setCart(prevCart => prevCart.filter(product => product.id !== productId));
-        updateProductState(productId,ProductStatus.NORMAL);
-        showToast('Item removed from cart!', 'success');
-    }, [showToast, updateProductState]);
+  const removeFromCart = useCallback(
+    (productId: number) => {
+      setCart((prevCart) =>
+        prevCart.filter((product) => product.id !== productId)
+      );
+      updateProductState(productId, ProductStatus.NORMAL);
+      showToast("Item removed from your cart!", "success");
+    },
+    [showToast, updateProductState]
+  );
 
-    const clearCart = useCallback(() => {
-        cart.forEach(product => {
-            updateProductState(product.id,ProductStatus.BOUGHT);
-        });
-        setCart([]);
-    }, [cart, updateProductState]);
+  const clearCart = useCallback(() => {
+    cart.forEach((product) => {
+      updateProductState(product.id, ProductStatus.BOUGHT);
+    });
+    setCart([]);
+  }, [cart, updateProductState]);
 
-    const updateProductQuantity = useCallback((productId: number, quantity: number) => {
-        setCart(prevCart =>
-            prevCart.map(product =>
-                product.id === productId ? { ...product, quantity } : product
-            )
-        );
-    }, []);
+  const updateProductQuantity = useCallback(
+    (productId: number, quantity: number) => {
+      setCart((prevCart) =>
+        prevCart.map((product) =>
+          product.id === productId ? { ...product, quantity } : product
+        )
+      );
+    },
+    []
+  );
 
-    return { cart, addToCart, removeFromCart, clearCart, updateProductQuantity };
+  return {
+    cart,
+    addToCart,
+    removeFromCart,
+    clearCart,
+    updateProductQuantity,
+    productStatus,
+    updateProductState,
+  };
 };
