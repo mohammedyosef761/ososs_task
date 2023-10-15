@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/productCard.scss";
-import { ProductCardProps, ProductStatus } from "../types";
 import { ProductImage } from "../components";
 import { useProductActions } from "../hooks";
+import { ProductCardProps, ProductStatus } from "../../../types";
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,

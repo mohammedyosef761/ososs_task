@@ -1,4 +1,3 @@
-import { ProductStatus } from "../components/Product/types";
 
 export type Products = {
   id: number;
@@ -44,4 +43,22 @@ export interface GlobalContextProps {
 export interface UseProductsProps {
   offset?: number;
   limit?: number;
+}
+
+export interface LoaderProps {
+  size?: number; // Size of the loader in pixels
+  color?: string; // Color of the loader
+}
+
+export enum ProductStatus {
+    NORMAL = "normal",
+    ADDED = "added",
+    BOUGHT = "bought"
+}
+
+export interface ProductCardProps {
+    product: Products;
+    updateProductState: (productId: number, state: ProductStatus) => void;
+    onAddToCart: (product: Products) => void;
+    state: ProductStatus;
 }

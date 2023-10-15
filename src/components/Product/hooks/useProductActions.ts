@@ -1,5 +1,4 @@
-import { ProductStatus } from "../types";
-import { Products } from "../../../types";
+import { ProductStatus, Products } from "../../../types";
 import { useGlobalContext } from "../../../context";
 
 export const useProductActions = (

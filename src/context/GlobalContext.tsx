@@ -1,8 +1,7 @@
-import React, { createContext, useContext, useCallback, useState } from "react";
+import React, { createContext, useContext } from "react";
 import { useCrudCart, useToast } from "../hooks";
 import { Toaster } from "../components";
 import { GlobalContextProps } from "../types";
-import { ProductStatus } from "../components/Product/types";
 
 export const GlobalContext = createContext<GlobalContextProps | undefined>({
   cart: [],

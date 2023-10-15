@@ -1,8 +1,7 @@
 import React from "react";
 import { ProductCard } from "./Product";
-import { ProductStatus } from "./Product/types";
 import { useGlobalContext } from "../context";
-import { Products } from "../types";
+import { ProductStatus, Products } from "../types";
 
 type Props = {
   products: Products[];

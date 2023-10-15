@@ -1,6 +1,5 @@
 import { useState, useCallback } from "react";
-import { Products } from "../types";
-import { ProductStatus } from "../components/Product/types";
+import { ProductStatus, Products } from "../types";
 
 export const useCrudCart = (showToast: Function) => {
   const [cart, setCart] = useState<Products[]>([]);
