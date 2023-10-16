@@ -6,13 +6,13 @@ import { ProductCardProps, ProductStatus } from "../../../types";
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,
-  onAddToCart,
+  addToCart,
   state,
   updateProductState,
 }) => {
   const { handleAddToCart } = useProductActions(
     product,
-    onAddToCart,
+    addToCart,
     updateProductState,
     state
   );

@@ -1,10 +1,10 @@
 import React from "react";
 import { useGlobalContext } from "../../../context";
 import { asyncApiDelay } from "../../../utils";
-import { ProductStatus } from "../../../types";
+import { ProductStatus, Products } from "../../../types";
 
 export const usePurchase = (
-  cart: any[],
+  cart: Products[],
   clearCart: () => void,
   toggleSidebar: () => void
 ) => {

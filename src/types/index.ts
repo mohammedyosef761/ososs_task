@@ -59,6 +59,6 @@ export enum ProductStatus {
 export interface ProductCardProps {
     product: Products;
     updateProductState: (productId: number, state: ProductStatus) => void;
-    onAddToCart: (product: Products) => void;
+    addToCart: (product: Products) => void;
     state: ProductStatus;
 }

@@ -3,7 +3,7 @@ import { useGlobalContext } from "../../../context";
 
 export const useProductActions = (
   product: Products,
-  onAddToCart: Function,
+  addToCart: Function,
   updateProductStatus: Function,
   state: ProductStatus
 ) => {
@@ -15,7 +15,7 @@ export const useProductActions = (
       return;
     }
     showToast("added to cart", "success");
-    onAddToCart(product);
+    addToCart(product);
     updateProductStatus(product.id, newState);
   };
 

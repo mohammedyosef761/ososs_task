@@ -30,7 +30,7 @@ export const ProductList: React.FC<Props> = React.memo(
           <div key={product.id}>
             <ProductCard
               product={product}
-              onAddToCart={addToCart}
+              addToCart={addToCart}
               updateProductState={updateProductState}
               state={productStatus[product.id] || ProductStatus.NORMAL}
             />
