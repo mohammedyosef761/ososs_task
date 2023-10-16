@@ -1,6 +1,6 @@
 import React from "react";
 import { ToasterProps } from "../../../types";
-import "../styles/toaster.scss";
+// import "../styles/toaster.scss";
 
 export const Toaster: React.FC<ToasterProps> = ({ message, type }) => {
   return (

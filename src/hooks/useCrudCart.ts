@@ -36,7 +36,7 @@ export const useCrudCart = (showToast: Function) => {
         prevCart.filter((product) => product.id !== productId)
       );
       updateProductState(productId, ProductStatus.NORMAL);
-      showToast("Item removed from your cart!", "success");
+      showToast("item is removed from your cart!", "success");
     },
     [showToast, updateProductState]
   );

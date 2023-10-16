@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.escuelajs.co/api/v1";
+import { BASE_URL } from "../constants";
 
 export const fetchInstance = async (endpoint: string, params?: any) => {
   const url = new URL(`${BASE_URL}${endpoint}`);
