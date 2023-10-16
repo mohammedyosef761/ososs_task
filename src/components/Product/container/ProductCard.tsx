@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/productCard.scss";
+import "../styles/style.scss";
 import { ProductImage } from "../components";
 import { useProductActions } from "../hooks";
 import { ProductCardProps, ProductStatus } from "../../../types";
