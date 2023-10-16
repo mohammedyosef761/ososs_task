@@ -24,7 +24,7 @@ export const useCrudCart = (showToast: Function) => {
         setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
         showToast("added item to the cart is successs!", "success");
       } else {
-        showToast("Product is exist in your cart!", "error");
+        showToast("this product is exist in your cart!", "error");
       }
     },
     [showToast, cart]
