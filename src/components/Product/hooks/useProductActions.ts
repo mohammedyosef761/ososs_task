@@ -10,7 +10,7 @@ export const useProductActions = (
   const { showToast } = useGlobalContext();
 
   const handleAddToCart = (newState: ProductStatus) => {
-    if (state === ProductStatus.ADDED) {
+    if (state === ProductStatus.ADDED || state===ProductStatus.BOUGHT) {
       showToast("Error: Product is already in the cart!", "error");
       return;
     }
